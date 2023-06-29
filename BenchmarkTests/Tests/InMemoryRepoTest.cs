@@ -6,6 +6,8 @@ namespace BenchmarkTests.Tests
 {
     [SimpleJob(RuntimeMoniker.Net60, baseline: true)]
     [SimpleJob(RuntimeMoniker.Net70)]
+    [MemoryDiagnoser]
+    [RankColumn]
     public class InMemoryRepoTest
     {
         private readonly InMemoryRepo _repo;

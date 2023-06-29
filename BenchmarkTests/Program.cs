@@ -2,5 +2,5 @@
 using BenchmarkTests.Repositories;
 using BenchmarkTests.Tests;
 
-BenchmarkRunner.Run<DatabaseRepoTest>();
+//BenchmarkRunner.Run<DatabaseRepoTest>();
 //BenchmarkRunner.Run<InMemoryRepoTest>();

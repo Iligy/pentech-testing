@@ -34,54 +34,56 @@ namespace BenchmarkTests.Repositories
         public void IEnumerableGetTopTenHFIEmployee()
         {
             IEnumerable<Employee> employees = _employeeSet
-                .Where(e => e.Segment == "HFI" 
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id);
+                .Where(e => e.Segment == "HFI"
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
+                .ToList();
+           
 
-            employees.Take(10).ToList().Consume(_consumer);
+            employees.OrderBy(e => e.Id).Take(10).Consume(_consumer);
         }
 
         public void IQueryableGetTopTenHFIEmployee()
         {
             IQueryable<Employee> employees = _employeeSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id);
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000);
 
-            employees.Take(10).ToList();
+            employees.OrderBy(e => e.Id).Take(10).ToList();
         }
 
         public void IListGetTopTenHFIEmployee()
         {
             IList<Employee> employees = _employeeSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id)
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
                 .ToList();
 
-            employees.Take(10);
+            employees.OrderBy(e => e.Id).Take(10);
         }
 
         public void ICollectionTopTenHFIEmployee()
         {
             ICollection<Employee> employees = _employeeSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id)
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
                 .ToList();
 
-            employees.Take(10);
+            employees.OrderBy(e => e.Id).Take(10);
         }
 
         public void ListTopTenHFIEmployee()
         {
             List<Employee> employees = _employeeSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id)
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
                 .ToList();
 
-            employees.Take(10);
+            employees.OrderBy(e => e.Id).Take(10);
         }
 
         // no annotation
@@ -90,53 +92,55 @@ namespace BenchmarkTests.Repositories
         {
             IEnumerable<EmployeeNoAnnotation> employeesNoAnno = _employeeNoAnnotationSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id);
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
+                .ToList();
 
-            employeesNoAnno.Take(10).ToList().Consume(_consumer);
+
+            employeesNoAnno.OrderBy(e => e.Id).Take(10).Consume(_consumer);
         }
 
         public void IQueryableGetTopTenHFIEmployeeNoAnno()
         {
             IQueryable<EmployeeNoAnnotation> employeesNoAnno = _employeeNoAnnotationSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id);
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000);
 
-            employeesNoAnno.Take(10).ToList();
+            employeesNoAnno.OrderBy(e => e.Id).Take(10).ToList();
         }
 
         public void IListGetTopTenHFIEmployeeNoAnno()
         {
             IList<EmployeeNoAnnotation> employeesNoAnno = _employeeNoAnnotationSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id)
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
                 .ToList();
 
-            IList<EmployeeNoAnnotation> data = employeesNoAnno.Take(10).ToList();
+            IList<EmployeeNoAnnotation> data = employeesNoAnno.OrderBy(e => e.Id).Take(10).ToList();
         }
 
         public void ICollectionTopTenHFIEmployeeNoAnno()
         {
             ICollection<EmployeeNoAnnotation> employeesNoAnno = _employeeNoAnnotationSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id)
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
                 .ToList();
 
-            ICollection<EmployeeNoAnnotation> data = employeesNoAnno.Take(10).ToList();
+            ICollection<EmployeeNoAnnotation> data = employeesNoAnno.OrderBy(e => e.Id).Take(10).ToList();
         }
 
         public void ListTopTenHFIEmployeeNoAnno()
         {
             List<EmployeeNoAnnotation> employeesNoAnno = _employeeNoAnnotationSet
                 .Where(e => e.Segment == "HFI"
-                /*&& e.PerformanceNotes.Contains("Lorem")*/)
-                .OrderBy(e => e.Id)
+                && e.PerformanceNotes.Contains("Lorem"))
+                .Take(100000)
                 .ToList();
 
-            List<EmployeeNoAnnotation> data = employeesNoAnno.Take(10).ToList();
+            List<EmployeeNoAnnotation> data = employeesNoAnno.OrderBy(e => e.Id).Take(10).ToList();
         }
     }
 }
